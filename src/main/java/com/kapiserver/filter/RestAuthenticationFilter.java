@@ -2,6 +2,8 @@ package com.kapiserver.filter;
 
 
 import com.kapiserver.service.AuthenticationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,8 @@ import java.io.IOException;
 
 public class RestAuthenticationFilter implements Filter {
     public static final String AUTHENTICATION_HEADER = "Authorization";
+    private final Logger LOG = LoggerFactory.getLogger(RestAuthenticationFilter.class);
+
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
@@ -28,6 +32,7 @@ public class RestAuthenticationFilter implements Filter {
                 filter.doFilter(request, response);
             } else {
                 if (response instanceof HttpServletResponse) {
+                    LOG.info("AUTH FAILED");
                     HttpServletResponse httpServletResponse = (HttpServletResponse) response;
                     httpServletResponse
                             .setStatus(HttpServletResponse.SC_UNAUTHORIZED);

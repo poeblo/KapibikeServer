@@ -2,58 +2,40 @@ package com.kapiserver.model;
 
 public class Card {
     private int id;
-    private int value;
-    private int phone;
-    private String mail;
-    private String name;
+    private int balance;
+    private Client owner;
+
 
     public Card(){}
 
-    public Card(int id, int value, int phone, String mail, String name){
+    public Card(int id, int balance, Client owner){
         this.id=id;
-        this.value=value;
-        this.phone=phone;
-        this.mail=mail;
-        this.name=name;
+        this.balance = balance;
+        this.owner=owner;
+    }
+
+    public Client getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Client owner) {
+        this.owner = owner;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getValue() {
-        return value;
+    public int getBalance() {
+        return balance;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
 }

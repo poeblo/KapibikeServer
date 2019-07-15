@@ -27,7 +27,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
     @Override
     @RequestMapping("/")
     protected Filter[] getServletFilters() {
-        return new Filter[]{ new CORSFilter(),auth};
+        return new Filter[]{ new CORSFilter() ,auth};
     }
 
 
